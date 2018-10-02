@@ -89,6 +89,7 @@ int main(int nc, char *np[])
         return 0;
 }
 
+
 void error(char *mes)
 {
 	printf("\n ERROR: %s\n", mes);
