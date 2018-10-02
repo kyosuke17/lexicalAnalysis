@@ -55,27 +55,42 @@ char *tokenstr[NUMOFTOKEN+1] = {
 	">=", "(", ")", "[", "]", ":=", ".", ",", ":", ";", "read","write", "break"
 };
 
-int main(int nc, char *np[]) {
+int main(int nc, char *np[]) 
+{
 	int token, i;
 
-    if(nc < 2) {
-	printf("File name id not given.\n");
-	return 0;
-    }
-    if(init_scan(np[1]) < 0) {
-	printf("File %s can not open.\n", np[1]);
-	return 0;
-    }
-    /* 作成する部分：トークンカウント用の配列？を初期化する */
-    while((token = scan()) >= 0) {
-	/* 作成する部分：トークンをカウントする */
-    }
-    end_scan();
-    /* 作成する部分:カウントした結果を出力する */
-    return 0;
+	if (nc < 2) 
+	{
+		printf("File name id not given.\n");
+	        return 0;
+	}
+	if (init_scan(np[1]) < 0)
+	{
+		printf("File %s can not open.\n", np[1]);
+		return 0;
+	}
+	/* 作成する部分：トークンカウント用の配列？を初期化する */
+	numtoken[NUMTOKEN + 1] = {};
+
+	while ((token = scan()) >= 0) 
+	{
+		/* 作成する部分：トークンをカウントする */
+		numtoken[token] += 1;
+	}
+	end_scan();
+	/* 作成する部分:カウントした結果を出力する */
+	for(i = 0; i != NUMOFTOKEN; i++)
+	{
+		if(numtoken[i])
+		{
+			printf("\" %s \"    %d \n",tokenstr[i], numtoken[i]);
+		}
+	}
+        return 0;
 }
 
-void error(char *mes) {
+void error(char *mes)
+{
 	printf("\n ERROR: %s\n", mes);
 	end_scan();
 }
