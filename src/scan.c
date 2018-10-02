@@ -11,6 +11,17 @@ int cbuf;
 FILE *p;
 int eof = 0;
 
+int init_scan(char *filename)
+{
+	if ( (p = fopen(filename, "w") ) == NULL)
+	{
+		return -1;
+	} else {
+		return  1;
+	}
+}
+
+
 int scan(void)
 {
 	char str[MAXSTRSIZE];
@@ -424,5 +435,9 @@ int scan(void)
 		return scan();
 	}
 	return -1;
+}
+
+int get_linenum()
+{
 }
 
