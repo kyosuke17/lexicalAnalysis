@@ -55,11 +55,11 @@ char *tokenstr[NUMOFTOKEN+1] = {
 	">=", "(", ")", "[", "]", ":=", ".", ",", ":", ";", "read","write", "break"
 };
 
-int main(int nc, char *np[]) 
+int main(int nc, char *np[])
 {
 	int token, i;
 
-	if (nc < 2) 
+	if (nc < 2)
 	{
 		printf("File name id not given.\n");
 	        return 0;
@@ -72,7 +72,7 @@ int main(int nc, char *np[])
 	/* 作成する部分：トークンカウント用の配列？を初期化する */
 	numtoken[NUMTOKEN + 1] = {};
 
-	while ((token = scan()) >= 0) 
+	while ((token = scan()) >= 0)
 	{
 		/* 作成する部分：トークンをカウントする */
 		numtoken[token] += 1;
