@@ -1,13 +1,4 @@
-/*
- ============================================================================
- Name        : kadai01.c
- Author      : Kyosuke Yokota
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
- ============================================================================
- */
-#include "token-list.h"
+#include "token_list.h"
 
 struct ID {
 	char *name;
@@ -69,3 +60,4 @@ void release_idtab() {	/* Release tha data structure */
 	}
 	init_idtab();
 }
+
